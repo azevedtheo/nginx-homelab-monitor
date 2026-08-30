@@ -1,4 +1,5 @@
 """Ensures the project root is on sys.path so tests/ can `import monitor_bot`."""
+
 import os
 import sys
 

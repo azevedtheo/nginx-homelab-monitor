@@ -31,15 +31,16 @@ load_dotenv()  # loads TELEGRAM_BOT_TOKEN etc. from a local .env file, if presen
 # Configuration
 # --------------------------------------------------------------------------- #
 
+
 @dataclass(frozen=True)
 class Config:
     token: str
     chat_id: str
     server_url: str
-    check_interval: int = 30          # seconds between checks
-    alert_repeat_interval: int = 60   # seconds between repeated "still down" alerts
-    failure_threshold: int = 2        # consecutive failed checks before alerting
-    request_timeout: int = 5          # seconds
+    check_interval: int = 30  # seconds between checks
+    alert_repeat_interval: int = 60  # seconds between repeated "still down" alerts
+    failure_threshold: int = 2  # consecutive failed checks before alerting
+    request_timeout: int = 5  # seconds
 
     @classmethod
     def from_env(cls) -> "Config":
@@ -81,6 +82,7 @@ def setup_logging() -> None:
 # --------------------------------------------------------------------------- #
 # Monitor
 # --------------------------------------------------------------------------- #
+
 
 def ping_button() -> InlineKeyboardMarkup:
     markup = InlineKeyboardMarkup()
@@ -170,6 +172,7 @@ class ServerMonitor:
 # Entry point
 # --------------------------------------------------------------------------- #
 
+
 def main() -> None:
     setup_logging()
     config = Config.from_env()
@@ -197,7 +200,9 @@ def main() -> None:
     monitor_thread.start()
     log.info(
         "Monitoring started for %s (interval=%ss, threshold=%d failures)",
-        config.server_url, config.check_interval, config.failure_threshold,
+        config.server_url,
+        config.check_interval,
+        config.failure_threshold,
     )
 
     def handle_shutdown(signum, frame):

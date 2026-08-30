@@ -52,9 +52,7 @@ class TestCheck:
             assert monitor.check() is False
 
     def test_check_returns_false_on_connection_error(self, monitor):
-        with patch.object(
-            monitor._session, "get", side_effect=requests.exceptions.ConnectionError
-        ):
+        with patch.object(monitor._session, "get", side_effect=requests.exceptions.ConnectionError):
             assert monitor.check() is False
 
 
