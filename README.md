@@ -76,7 +76,7 @@ All configuration is read from environment variables (via `.env`) — nothing is
 |---------------------------|:--------:|---------------------------|-----------------------------------------------|
 | `TELEGRAM_BOT_TOKEN`      | yes      | —                          | Bot token from @BotFather                     |
 | `TELEGRAM_CHAT_ID`        | yes      | —                          | Chat/user ID to send alerts to                |
-| `SERVER_URL`              | no       | `http://192.168.0.193`    | Endpoint to monitor                           |
+| `SERVER_URL`              | no       | `pfSense WAN IPv4 address`    | Endpoint to monitor                           |
 | `CHECK_INTERVAL`          | no       | `30`                       | Seconds between health checks                 |
 | `ALERT_REPEAT_INTERVAL`   | no       | `60`                       | Seconds between repeated "still down" alerts  |
 | `FAILURE_THRESHOLD`       | no       | `2`                        | Consecutive failed checks before alerting     |
