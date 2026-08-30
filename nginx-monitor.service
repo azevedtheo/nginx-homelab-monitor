@@ -1,0 +1,16 @@
+[Unit]
+Description=Nginx Uptime Monitor Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=monitor
+WorkingDirectory=/opt/nginx-monitor
+EnvironmentFile=/opt/nginx-monitor/.env
+ExecStart=/opt/nginx-monitor/venv/bin/python monitor_bot.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
